@@ -1,4 +1,4 @@
-import { config } from "./config";
+import { config } from './config';
 
 // базові функції
 
@@ -16,29 +16,45 @@ export type NumberFormatOptions = {
   locale?: string;
 };
 
-export function formatNumber(
-  value: number,
-  options?: NumberFormatOptions,
-): string {
+export function formatNumber(value: number, options?: NumberFormatOptions): string {
   const precision = options?.precision ?? config.APP_PRECISION;
   return value.toFixed(precision);
 }
 
-// НОВЕ: клас Logger з літеральним типом рівня логування
+// інтерфейс і generic-функція
 
-export type LogLevel = "silent" | "info" | "debug";
+export interface User {
+  id: number;
+  name: string;
+}
+
+export function groupBy<T>(arr: T[], key: keyof T): Record<string, T[]> {
+  return arr.reduce(
+    (acc, item) => {
+      const group = String(item[key]);
+      acc[group] = acc[group] ?? [];
+      acc[group].push(item);
+      return acc;
+    },
+    {} as Record<string, T[]>,
+  );
+}
+
+// клас Logger з літеральним типом рівня логування
+
+export type LogLevel = 'silent' | 'info' | 'debug';
 export class Logger {
   constructor(private level: LogLevel) {}
 
   info(msg: string): void {
-    if (this.level !== "silent") {
-      console.log("[INFO]", msg);
+    if (this.level !== 'silent') {
+      console.log('[INFO]', msg);
     }
   }
 
   debug(msg: string): void {
-    if (this.level === "debug") {
-      console.log("[DEBUG]", msg);
+    if (this.level === 'debug') {
+      console.log('[DEBUG]', msg);
     }
   }
 }
