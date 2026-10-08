@@ -490,7 +490,7 @@
 
 **Крок 11.**  Перевірка форматування `README.md` (format, format:check)
 
-![Крок 11](screenshots/11-1_git2-9.png)
+![Крок 11](screenshots/11_git2-9.png)
 
 Додано README.md, коміт проходить husky-хуки (lint, format:check, typecheck, commitlint)
 
