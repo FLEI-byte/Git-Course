@@ -89,3 +89,9 @@ LOG_LEVEL=debug
 - [v2.0.0](https://github.com/FLEI-byte/GIT-Course/tree/v2.0.0)
 
 Сторінка всіх тегів: https://github.com/FLEI-byte/GIT-Course/tags
+
+## Звіт про виконання роботи
+
+Детальний покроковий звіт про виконання кожного етапу (команди, результати, скріншоти):
+
+[report.md](report.md)
